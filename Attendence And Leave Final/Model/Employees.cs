@@ -36,7 +36,7 @@ namespace Attendence_And_Leave_Final.Model
         public class EmployeeLogin
         {
            
-            public string UserName { get; set; }
+            public string UserName { get; set; } 
            
             public string Password { get; set; }
         }
