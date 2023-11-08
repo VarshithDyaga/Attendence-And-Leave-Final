@@ -19,18 +19,19 @@ namespace Attendence_And_Leave_Final.Model
             [JsonIgnore]
             public virtual Project? project { get; set; }
 
+             public string UserName { get; set; }
 
-            public string EmployeeName { get; set; }
+            public string firstName { get; set; }
 
-            public string UserName { get; set; }
+            public string lastName { get; set; }
 
             public string Password { get; set; }
 
-            public string EmployeeEmail { get; set; } = null!;
+            public string email { get; set; } = null!;
 
            
 
-            public string Designation {  get; set; }
+            public string designation {  get; set; }
 
         }
         public class EmployeeLogin
