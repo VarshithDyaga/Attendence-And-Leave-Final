@@ -123,7 +123,7 @@ namespace Attendence_And_Leave_Final.Controllers
         [Route("Login")]
         public ActionResult Login([FromBody] EmployeeLogin employeeLogin)
         {
-            var currentAdmin = _context.EmployeeData.FirstOrDefault(x => x.UserName == employeeLogin.UserName && x.Password == employeeLogin.Password && x.designation==employeeLogin.designation);
+            var currentAdmin = _context.EmployeeData.FirstOrDefault(x => x.UserName == employeeLogin.UserName && x.Password == employeeLogin.Password && x.designation==employeeLogin.designation); 
             if (currentAdmin == null)
             {
                 return NotFound("Invalid Username or password");
