@@ -114,16 +114,11 @@ namespace Attendence_And_Leave_Final.Controllers
 
             return NoContent();
         }
-
-        private bool EmployeesExists(int id)
-        {
-            return (_context.EmployeeData?.Any(e => e.EmployeeId == id)).GetValueOrDefault();
-        }
         [HttpPost]
         [Route("Login")]
         public ActionResult Login([FromBody] EmployeeLogin employeeLogin)
         {
-            var currentAdmin = _context.EmployeeData.FirstOrDefault(x => x.UserName == employeeLogin.UserName && x.Password == employeeLogin.Password && x.designation==employeeLogin.designation); 
+            var currentAdmin = _context.EmployeeData.FirstOrDefault(x => x.UserName == employeeLogin.UserName && x.Password == employeeLogin.Password && x.designation == employeeLogin.designation);
             if (currentAdmin == null)
             {
                 return NotFound("Invalid Username or password");
@@ -135,5 +130,23 @@ namespace Attendence_And_Leave_Final.Controllers
             }
             return Ok(token);
         }
+
+
+        private bool EmployeesExists(int id)
+        {
+            return (_context.EmployeeData?.Any(e => e.EmployeeId == id)).GetValueOrDefault();
+        }
+
+        [HttpGet("IsUsernameUnique")]
+        public async Task<IActionResult> IsUsernameUnique(string username)
+        {
+            if (await _context.EmployeeData.AnyAsync(u => u.UserName == username))
+            {
+                return Ok(false); // Username is not unique
+            }
+
+            return Ok(true); // Username is unique
+        }
     }
 }
+

@@ -31,6 +31,7 @@ namespace Attendence_And_Leave_Final
 
             app.UseAuthorization();
 
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
 
             app.MapControllers();
 

@@ -114,6 +114,80 @@ namespace Attendence_And_Leave_Final.Controllers
 
             return NoContent();
         }
+        [HttpPatch("ApproveLeave/{id}")]
+        public async Task<IActionResult> ApproveLeave(int id)
+        {
+            var leave = await _context.LeaveData.FindAsync(id);
+
+            if (leave == null)
+            {
+                return NotFound();
+            }
+
+            if (leave.LeaveStatus != "pending")
+            {
+                // Leave is not in a pending state, cannot be approved
+                return BadRequest("Leave is not in a pending state and cannot be approved.");
+            }
+
+            leave.LeaveStatus = "Approved";
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!LeavesExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        [HttpPatch("RejectLeave/{id}")]
+        public async Task<IActionResult> RejectLeave(int id)
+        {
+            var leave = await _context.LeaveData.FindAsync(id);
+
+            if (leave == null)
+            {
+                return NotFound();
+            }
+
+            if (leave.LeaveStatus != "pending")
+            {
+                // Leave is not in a pending state, cannot be rejected
+                return BadRequest("Leave is not in a pending state and cannot be rejected.");
+            }
+
+            leave.LeaveStatus = "Rejected";
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!LeavesExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
 
         private bool LeavesExists(int id)
         {

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Attendence_And_Leave_Final.Migrations
 {
     [DbContext(typeof(Attendance_Leave_Context))]
-    [Migration("20231108104855_First")]
-    partial class First
+    [Migration("20231112160259_Mig1")]
+    partial class Mig1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -70,10 +70,6 @@ namespace Attendence_And_Leave_Final.Migrations
 
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
-
-                    b.Property<string>("EmployeeRole")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Employeename")
                         .IsRequired()
@@ -148,10 +144,6 @@ namespace Attendence_And_Leave_Final.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("EmployeeName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmployeeRole")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

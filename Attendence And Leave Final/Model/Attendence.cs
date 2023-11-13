@@ -23,8 +23,6 @@ namespace Attendence_And_Leave_Final.Model
 
             public string Date { get; set; }
 
-            public string EmployeeRole { get; set; } = null!;
-
             public string? PresenceStatus { get; set; }
 
             public string? ApprovalStatus { get; set; }
