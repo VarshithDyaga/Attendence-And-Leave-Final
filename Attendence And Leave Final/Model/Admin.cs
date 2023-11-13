@@ -13,7 +13,7 @@ namespace Attendence_And_Leave_Final.Model
         public string? Name { get; set; }
 
 
-        public string Email { get; set; }
+        public string Email { get; set; } 
        
         public string Password { get; set; }
     }

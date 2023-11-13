@@ -23,7 +23,7 @@ namespace Attendence_And_Leave_Final.Model
 
 
         public string EmployeeName { get; set; } = null!;
-
+         
        
 
         public string StartDate { get; set; }

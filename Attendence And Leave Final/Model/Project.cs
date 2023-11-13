@@ -17,3 +17,4 @@ namespace Attendence_And_Leave_Final.Model
         public string ProjectStatus { get; set; } = null!;
     }
 }
+ 

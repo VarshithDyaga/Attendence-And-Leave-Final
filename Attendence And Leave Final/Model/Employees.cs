@@ -15,7 +15,7 @@ namespace Attendence_And_Leave_Final.Model
 
             [ForeignKey(nameof(project))]
             public int? ProjectCode { get; set; }
-
+         
             [JsonIgnore]
             public virtual Project? project { get; set; }
 

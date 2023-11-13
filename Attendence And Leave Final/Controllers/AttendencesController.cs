@@ -114,10 +114,11 @@ namespace Attendence_And_Leave_Final.Controllers
 
             return NoContent();
         }
-
+         
         private bool AttendenceExists(int id)
         {
             return (_context.AttendenceData?.Any(e => e.AttendenceId == id)).GetValueOrDefault();
         }
     }
 }
+ 

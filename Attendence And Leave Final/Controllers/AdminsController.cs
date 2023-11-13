@@ -111,7 +111,7 @@ namespace Attendence_And_Leave_Final.Controllers
             }
 
             _context.AdminData.Remove(admin);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(); 
 
             return NoContent();
         }

@@ -157,7 +157,7 @@ namespace Attendence_And_Leave_Final.Controllers
             var leave = await _context.LeaveData.FindAsync(id);
 
             if (leave == null)
-            {
+            { 
                 return NotFound();
             }
 
@@ -168,7 +168,7 @@ namespace Attendence_And_Leave_Final.Controllers
             }
 
             leave.LeaveStatus = "Rejected";
-
+             
             try
             {
                 await _context.SaveChangesAsync();
