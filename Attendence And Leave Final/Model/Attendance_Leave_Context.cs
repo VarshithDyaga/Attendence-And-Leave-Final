@@ -12,7 +12,7 @@ namespace Attendence_And_Leave_Final.Model
 
         public virtual DbSet<Employees> EmployeeData { get; set; }
 
-        public virtual DbSet<Leaves> LeaveData { get; set; }
+        public virtual DbSet<Leaves> LeaveData { get; set; } 
 
         
 
