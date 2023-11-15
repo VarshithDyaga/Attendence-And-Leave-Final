@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using System.Text.Json.Serialization;
 
-namespace Attendence_And_Leave_Final.Model
+namespace Attendence_And_Leave_Final.Model 
 {
     
         public class Employees : EmployeeLogin

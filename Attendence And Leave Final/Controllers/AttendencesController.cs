@@ -24,10 +24,10 @@ namespace Attendence_And_Leave_Final.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Attendence>>> GetAttendenceData()
         {
-          if (_context.AttendenceData == null)
-          {
-              return NotFound();
-          }
+            if (_context.AttendenceData == null)
+            {
+                return NotFound();
+            }
             return await _context.AttendenceData.ToListAsync();
         }
 
@@ -35,10 +35,10 @@ namespace Attendence_And_Leave_Final.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Attendence>> GetAttendence(int id)
         {
-          if (_context.AttendenceData == null)
-          {
-              return NotFound();
-          }
+            if (_context.AttendenceData == null)
+            {
+                return NotFound();
+            }
             var attendence = await _context.AttendenceData.FindAsync(id);
 
             if (attendence == null)
@@ -85,10 +85,10 @@ namespace Attendence_And_Leave_Final.Controllers
         [HttpPost]
         public async Task<ActionResult<Attendence>> PostAttendence(Attendence attendence)
         {
-          if (_context.AttendenceData == null)
-          {
-              return Problem("Entity set 'Attendance_Leave_Context.AttendenceData'  is null.");
-          }
+            if (_context.AttendenceData == null)
+            {
+                return Problem("Entity set 'Attendance_Leave_Context.AttendenceData' is null.");
+            }
             _context.AttendenceData.Add(attendence);
             await _context.SaveChangesAsync();
 
@@ -114,11 +114,33 @@ namespace Attendence_And_Leave_Final.Controllers
 
             return NoContent();
         }
-         
+
+        // GET: api/Attendences/employee/5
+        [HttpGet("employee/{employeeId}")]
+        public async Task<ActionResult<IEnumerable<Attendence>>> GetAttendenceByEmployeeId(int employeeId)
+        {
+            try
+            {
+                var attendenceList = await _context.AttendenceData
+                    .Where(a => a.EmployeeId == employeeId)
+                    .ToListAsync();
+
+                if (attendenceList == null || !attendenceList.Any())
+                {
+                    return NotFound($"No attendance records found for employee with ID {employeeId}");
+                }
+
+                return Ok(attendenceList);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
         private bool AttendenceExists(int id)
         {
             return (_context.AttendenceData?.Any(e => e.AttendenceId == id)).GetValueOrDefault();
         }
     }
 }
- 
