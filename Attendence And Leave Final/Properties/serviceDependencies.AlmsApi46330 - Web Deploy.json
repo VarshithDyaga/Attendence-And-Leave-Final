@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/AlmsApi46330/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsConnection_4FBD89C1F3",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/almssprint46330/databases/dbalms",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:Connection",
+      "dynamicId": null
+    },
+    "storage1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/AlmsApi46330/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsStorAccConnString_28C0B0087F, /subscriptions/713b01f8-2b77-4a8a-b005-b783fd828570/resourceGroups/Almssprint/providers/Microsoft.Web/sites/AlmsApi46330/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsStorAccConnString_26A4931043",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Storage/storageAccounts/almssprint46330",
+      "type": "storage.azure",
+      "connectionId": "ConnectionStrings:StorAccConnString",
+      "dynamicId": null
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Function_App_ALMS": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7250",
+      "launchBrowser": false
+    }
+  }
+}

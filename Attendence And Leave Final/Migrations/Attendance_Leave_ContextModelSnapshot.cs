@@ -68,10 +68,6 @@ namespace Attendence_And_Leave_Final.Migrations
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<string>("EmployeeRole")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Employeename")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -145,10 +141,6 @@ namespace Attendence_And_Leave_Final.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("EmployeeName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EmployeeRole")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

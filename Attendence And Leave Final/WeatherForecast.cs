@@ -10,4 +10,4 @@ namespace Attendence_And_Leave_Final
 
         public string? Summary { get; set; }
     }
-}
+} 

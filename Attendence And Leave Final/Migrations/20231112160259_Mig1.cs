@@ -5,7 +5,7 @@
 namespace Attendence_And_Leave_Final.Migrations
 {
     /// <inheritdoc />
-    public partial class First : Migration
+    public partial class Mig1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -13,7 +13,7 @@ namespace Attendence_And_Leave_Final.Migrations
             migrationBuilder.CreateTable(
                 name: "AdminData",
                 columns: table => new
-                {
+                { 
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -76,7 +76,6 @@ namespace Attendence_And_Leave_Final.Migrations
                     ProjectCode = table.Column<int>(type: "int", nullable: false),
                     Employeename = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Date = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EmployeeRole = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PresenceStatus = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ApprovalStatus = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -106,7 +105,6 @@ namespace Attendence_And_Leave_Final.Migrations
                     EmployeeId = table.Column<int>(type: "int", nullable: true),
                     ProjectCode = table.Column<int>(type: "int", nullable: false),
                     EmployeeName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EmployeeRole = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     StartDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EndDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LeaveDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),

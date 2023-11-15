@@ -14,7 +14,7 @@ namespace Attendence_And_Leave_Final.Model
             public int EmployeeId { get; set; }
             [JsonIgnore]
             public Employees? employee { get; set; }
-            [ForeignKey(nameof(project))]
+            [ForeignKey(nameof(project))] 
             public int ProjectCode { get; set; }
             [JsonIgnore]
             public Project? project { get; set; }
@@ -22,8 +22,6 @@ namespace Attendence_And_Leave_Final.Model
             public string Employeename { get; set; } = null!;
 
             public string Date { get; set; }
-
-            public string EmployeeRole { get; set; } = null!;
 
             public string? PresenceStatus { get; set; }
 

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Attendence_And_Leave_Final.Model;
+using System.Security.Policy;
 
 namespace Attendence_And_Leave_Final.Controllers
 {
@@ -24,10 +25,10 @@ namespace Attendence_And_Leave_Final.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Admin>>> GetAdminData()
         {
-          if (_context.AdminData == null)
-          {
-              return NotFound();
-          }
+            if (_context.AdminData == null)
+            {
+                return NotFound();
+            }
             return await _context.AdminData.ToListAsync();
         }
 
@@ -35,10 +36,10 @@ namespace Attendence_And_Leave_Final.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Admin>> GetAdmin(int id)
         {
-          if (_context.AdminData == null)
-          {
-              return NotFound();
-          }
+            if (_context.AdminData == null)
+            {
+                return NotFound();
+            }
             var admin = await _context.AdminData.FindAsync(id);
 
             if (admin == null)
@@ -85,10 +86,10 @@ namespace Attendence_And_Leave_Final.Controllers
         [HttpPost]
         public async Task<ActionResult<Admin>> PostAdmin(Admin admin)
         {
-          if (_context.AdminData == null)
-          {
-              return Problem("Entity set 'Attendance_Leave_Context.AdminData'  is null.");
-          }
+            if (_context.AdminData == null)
+            {
+                return Problem("Entity set 'Attendance_Leave_Context.AdminData'  is null.");
+            }
             _context.AdminData.Add(admin);
             await _context.SaveChangesAsync();
 
@@ -110,7 +111,7 @@ namespace Attendence_And_Leave_Final.Controllers
             }
 
             _context.AdminData.Remove(admin);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(); 
 
             return NoContent();
         }
@@ -137,3 +138,4 @@ namespace Attendence_And_Leave_Final.Controllers
         }
     }
 }
+
